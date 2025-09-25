@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debugging Contest – C Programs</title>
+<style>
+    body { background-color: #1e1e1e; color: #d4d4d4; font-family: 'Fira Code', monospace; padding: 20px; }
+    pre { background-color: #282c34; color: #abb2bf; padding: 12px; border-radius: 6px; overflow-x: auto; }
+    table { border-collapse: collapse; margin: 10px 0; width: 100%; }
+    table, th, td { border: 1px solid #abb2bf; }
+    th, td { padding: 8px; text-align: left; }
+    th { background-color: #3e4451; }
+    hr { border: 1px solid #3e4451; margin: 30px 0; }
+    h2 { color: #61afef; }
+</style>
+</head>
+<body>
+
+<h1>Debugging Contest – C Programs</h1>
+
+<!-- 1. Armstrong Number -->
+<h2>1. Armstrong Number</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main() 
+    int num = 371, original, result = 1, n, temp, digit, power, j
+    original = num;
+    temp = num;
+    while (temp > 0) { temp = temp / 10; n++; }
+    temp = num;
+    while (temp > 0) {
+        digit = temp % 10;
+        power = 1;
+        for(j=0;j&lt;n;j++) power *= digit;
+        result += power
+        temp /= 10
+    }
+    if(result == original) printf("%d is an Armstrong number\\n", num);
+    else printf("%d is not an Armstrong number\\n", num);
+    return 0
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>153</td><td>153 is an Armstrong number</td></tr>
+<tr><td>370</td><td>370 is an Armstrong number</td></tr>
+<tr><td>9474</td><td>9474 is an Armstrong number</td></tr>
+<tr><td>123</td><td>123 is not an Armstrong number</td></tr>
+<tr><td>0</td><td>0 is an Armstrong number</td></tr>
+</table>
+<hr>
+
+<!-- 2. Second Largest Number -->
+<h2>2. Second Largest Number</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int arr[] = {10, 5, 8, 20, 12};
+    int n = 5, i
+    int largest = arr[0], second = -1;
+    for(i=1;i&lt;n;i++){
+        if(arr[i] &gt; largest) { second = largest; largest = arr[i]; }
+        else if(arr[] &gt; second & arr[i] != largest) second = arr[i];
+    }
+    if(second == -1) printf("No second largest number.\\n");
+    else printf("Second largest = %d\\n", second);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[10,5,8,20,12]</td><td>Second largest = 12</td></tr>
+<tr><td>[5,5,5]</td><td>No second largest number</td></tr>
+<tr><td>[1]</td><td>No second largest number</td></tr>
+</table>
+<hr>
+
+<!-- 3. Vowels and Consonants -->
+<h2>3. Count Vowels and Consonants</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main() 
+    char str[] = "Debugging Competition"
+    int i, vowels=0, consonants=0;
+    for(i=0; str[i]!='\0'; i++){
+        char ch = str[i];
+        if((ch&gt;='a' &amp;&amp; ch&lt;='z') || (ch&gt;='A' &amp;&amp; ch&lt;='Z')){
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U') vowels++;
+            else consonants++;
+        }
+    }
+    printf("Vowels: %d\\nConsonants: %d\\n", vowels, consonants);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Debugging Competition"</td><td>Vowels 7, Consonants 13</td></tr>
+<tr><td>"Hello World!"</td><td>Vowels 3, Consonants 7</td></tr>
+</table>
+<hr>
+
+<!-- 4. GCD of Two Numbers -->
+<h2>4. GCD of Two Numbers</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int gcd(int a,int b){
+    while(b==0){ int temp==b; b=a%b; a=temp;}
+    return a
+}
+int main(){
+    printf("GCD of 48 and 18 = %d\\n", gcd(48,18));
+    printf("GCD of 100 and 25 = %d\\n", gcd(100,25));
+    printf("GCD of 7 and 13 = %d\\n", gcd(7,13));
+    printf("GCD of 10 and 0 = %d\\n", gcd(10,0));
+    printf("GCD of 0 and 5 = %d\\n", gcd(0,5));
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(48,18)</td><td>6</td></tr>
+<tr><td>(100,25)</td><td>25</td></tr>
+<tr><td>(7,13)</td><td>1</td></tr>
+<tr><td>(10,0)</td><td>10</td></tr>
+<tr><td>(0,5)</td><td>5</td></tr>
+</table>
+<hr>
+
+<!-- 5. Sum of Digits -->
+<h2>5. Sum of Digits</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n = 123, sum=0, temp=n;
+    while(temp&gt;0){ sum+= temp%10; temp/=10; }}
+    printf("Sum of digits of %d = %d\\n", n, sum)
+    return 1;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>123</td><td>6</td></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>9999</td><td>36</td></tr>
+<tr><td>-456</td><td>15</td></tr>
+<tr><td>1001</td><td>2</td></tr>
+</table>
+<hr>
+
+<!-- 6. Reverse String -->
+<h2>6. Reverse String</h2>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(){
+    char str[] = "hello";
+    int len = str(str);
+    printf("Original: %s | Reversed: " str)
+    for(int i=len-1;i>=0;i--) printf("%c", str[i]);
+    printf("\n");
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"hello"</td><td>olleh</td></tr>
+<tr><td>"racecar"</td><td>racecar</td></tr>
+<tr><td>""</td><td>""</td></tr>
+</table>
+<hr>
+
+<!-- 7. Factorial -->
+<h2>7. Factorial</h2>
+<pre>
+#include &lt;stdio.h&gt;
+long long factorial(int n){
+    if(n&l;0) return 1;
+    long long fact=1;
+    for(int i=2;i&lt;=n;i++) fact *= i;
+    return fact
+}
+int main(){
+    int tests[] = {5,0,10,-3};
+    for(int i=0;i&lt;4;i++){
+        int n = tests[i];
+        long long f = factorial(n);
+        if(f==-1) printf("Factorial not defined for %d\\n", n);
+        else printf("Factorial of %d = %lld\\n", n,f)
+    }
+    return 
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>5</td><td>120</td></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>10</td><td>3628800</td></tr>
+<tr><td>-3</td><td>Not defined</td></tr>
+</table>
+<hr>
+
+<!-- 8. Palindrome Number -->
+<h2>8. Palindrome Number</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int is_palindrome(int num){
+    int original=num, rev=0
+    while(num&gt;0){ rev = rev*10 + num%10; num/=10; }
+    return (original==rev);
+}
+int main(){
+    int tests[]={121,123,0,10};
+    for(int i=0;i&lt;4;i++)
+        int n=tests[i];
+        print("%d is %s a Palindrome\\n", n, is_palindrome(n)?"":"not");
+    }
+    return 0
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>121</td><td>Palindrome</td></tr>
+<tr><td>123</td><td>Not</td></tr>
+<tr><td>0</td><td>Palindrome</td></tr>
+<tr><td>10</td><td>Not</td></tr>
+</table>
+<hr>
+
+<!-- 9. Character Frequency -->
+<h2>9. Character Frequency</h2>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(){
+    char s[] = "Programming"
+    int freq[26]={0}
+    for(int i=0;i&lt;strlen(s);i++)
+        char ch = s[i];
+        if(ch&gt;='A' &amp;&amp; ch&lt;='Z') ch+=32;
+        if(ch&gt;='a' &amp;&amp; ch&lt;='z') freq[ch-'a']++;
+    }
+    for(int i=0;i&lt;26;i++) if(freq[i]) printf("%c: %d\\n", 'a'+i,freq[i])
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Programming"</td><td>a:1, g:2, i:1, m:2, n:1, o:1, p:1, r:2</td></tr>
+<tr><td>"Data Structures"</td><td>a:2, c:1, d:1, e:2, r:2, s:3, t:3, u:1</td></tr>
+<tr><td>"123abcABC"</td><td>a:2, b:2, c:2</td></tr>
+</table>
+<hr>
+
+<!-- 10. Unique Elements in Array -->
+<h2>10. Unique Elements in Array</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int arr[]={1,2,2,3,4,4,5};
+    int n=7,i,j,count
+    printf("Unique elements: ");
+    for(i=0;i&lt;n;i++){
+        count=0;
+        for(j=0;j&lt;n;j++){
+            if(arr[i]==arr[j]) count++
+        }
+        if(count==1) printf("%d ", arr[]);
+    }
+    printf("\\n");
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,2,2,3,4,4,5]</td><td>1 3 5</td></tr>
+<tr><td>[7,7,7]</td><td>(empty)</td></tr>
+</table>
+<hr>
+
+<!-- 11. First Non-Repeating Character -->
+<h2>11. First Non-Repeating Character</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    char s[]="aabbccddeefg"
+    int freq[256]={}, i;
+    for(i=0;s[i]!='\0';i++) freq[(unsigned char)s[i]]++;
+    char res='+';
+    for(i=0;s[i]!'\0';i++){
+        if(freq[(unsigned char)s[i]]==1){ res=s[i]; break; }
+    }
+    printf("First non-repeating character: %c\\n", res);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"aabbccddeefg"</td><td>g</td></tr>
+<tr><td>"aabbcc"</td><td>-</td></tr>
+<tr><td>"swiss"</td><td>w</td></tr>
+</table>
+<hr>
+
+<!-- 12. Perfect Number -->
+<h2>12. Perfect Number</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int is_perfect(int num){
+    if(num&lt;1) return 0;
+    int sum=;
+    for(int i=1;i&lt;num;i++) if(num%i==0) sum+=i
+    return sum==num;
+}
+int main(){
+    int tests[]={6,28,12,496,100,1}
+    for(int i=0;i&lt;6;i++)
+        printf("Input: %d => Is perfect? %s\\n", tests[i] is_perfect(tests[i])?"True":"False");
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>6</td><td>True</td></tr>
+<tr><td>28</td><td>True</td></tr>
+<tr><td>12</td><td>False</td></tr>
+<tr><td>496</td><td>True</td></tr>
+<tr><td>1</td><td>False</td></tr>
+</table>
+<hr>
+
+<!-- 13. Merge Two Sorted Arrays -->
+<h2>13. Merge Two Sorted Arrays</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int a1[]={1,3,5}, a2[]={2,4,6};
+    int n1=3,n2=3,i=0,j=0,k=0, merged[6];
+    while(i&lt;n1 &amp;&amp; j&lt;n2){
+        if(a1[i]&lt;a2[j]) merged[k++]=a1[i++];
+        else merged[k++]=a2[j+]
+    }
+    while(i&lt;n1) merged[k++]=a1[i++];
+    while(j&lt;n2) merged[k++]=a2[j++];
+    printf("Merged array: ");
+    for(i=0;i&lt;ki++) printf("%d ", merged[i]);
+    printf("\\n");
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,3,5] &amp; [2,4,6]</td><td>[1,2,3,4,5,6]</td></tr>
+</table>
+<hr>
+
+<!-- 14. Max and Min in Array -->
+<h2>14. Max and Min in Array</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int arr[]={3,5,7,2,8}
+    int max=arr[0, min=arr[], n=5;
+    for(int i=1;i&lt;n;i++){
+        if(arr[i]&gt;max) max=arr[i];
+        if(arr[i]&lt;min) min=arr i];
+    }
+    printf("Max: %d\\nMin: %d\\n", max, min);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[3,5,7,2,8]</td><td>Max 8, Min 2</td></tr>
+<tr><td>[1]</td><td>Max 1, Min 1</td></tr>
+</table>
+<hr>
+
+<!-- 15. Decimal to Binary -->
+<h2>15. Decimal to Binary</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int num=10, idx=0, n=num;
+    char bin[32];
+    if(num==0){ printf("Decimal: 0 => Binary: 0\\n"); return 0; }
+    while(n&gt;0){ bin[idx+] = (n%2)+'0'; n/=2; }
+    printf("Decimal: %d => Binary:, num);
+    for(int i=idx-1;i&gt;=0;i--) printf("%c", bin[i]);
+    printf("\\n");
+    return 0
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>5</td><td>101</td></tr>
+<tr><td>255</td><td>11111111</td></tr>
+</table>
+<hr>
+
+<!-- 16. Replace Vowels with '*' -->
+<h2>16. Replace Vowels with '*'</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int is_vowel(char ch){
+    if(ch&gt;='A' &amp;&amp; ch&lt;='Z') ch+=32;
+    return (ch=='a'||ch='e'||ch=='i'||ch='o'||ch=='u');
+}
+int main(){
+    char s[="Hello World";
+    for(int i=0;s[i]!='\0';i++) if(is_vowel(s[i])) s[i]='*';
+    printf("Original with vowels replaced: %s\\n", s);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Hello World"</td><td>H*ll* W*rld</td></tr>
+<tr><td>"AEIOUaeiou"</td><td>**********</td></tr>
+</table>
+<hr>
+
+
+<!-- 17. Pascal's Triangle -->
+<h2>17. Pascal's Triangle</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int n=7;
+    for(int line=0; line&lt;n; line++){
+        int number=1;
+        for(int j=0;j&lt;n-line-1;j++) printf(" ");
+        for(int i=;i&lt;=line;i++){
+            printf("%d ", number);
+            number = number*(line-i)/(i+1)
+        }
+        printf("\\n")
+    }
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>n=7</td><td>Prints first 7 rows of Pascal's triangle</td></tr>
+</table>
+<hr>
+
+<!-- 18. Sum of Even Numbers in Array -->
+<h2>18. Sum of Even Numbers in Array</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int arr[]={4,7,2,9,12,15}, n=6, sum=0;
+    for(int i=;i&lt;n;i++) if(arr[i]%2==0) sum+=arr[];
+    printf("Sum of even numbers: %d\\n", sum);
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[4,7,2,9,12,15]</td><td>18</td></tr>
+<tr><td>[1,3,5]</td><td>0</td></tr>
+</table>
+<hr>
+
+<!-- 19. Power of Number (x^n) -->
+<h2>19. Power of Number (x^n)</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int x=2, n=
+    long long res=1;
+    for(int i=0;i&lt;n;i++) res *= x;
+    printf("%d raised to the power %d is %lld\\n", x, n, res);
+    return 0
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,5)</td><td>32</td></tr>
+<tr><td>(5,0)</td><td>1</td></tr>
+<tr><td>(3,3)</td><td>27</td></tr>
+</table>
+<hr>
+
+<!-- 20. Transpose of a Matrix -->
+<h2>20. Transpose of a Matrix</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int matrix[2][3]={{1,2,3},{4,5,6}}
+    int transpose[3][2];
+    for(int i=;i&lt;2;i++)
+        for(int =0;j&lt;3;j++)
+            transpose[j][i]=matrix[i][j];
+    printf("Transpose:\\n");
+    for(int i=0;i&lt;3;i++){
+        for(int j=0;j&lt;2;j++) printf("%d ", ranspose[i][j]);
+        printf("\\n");
+    }
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[[1,2,3],[4,5,6]]</td><td>
+1 4<br>
+2 5<br>
+3 6
+</td></tr>
+</table>
+<hr>
+
+<!-- 21. Simple Elevator Simulation -->
+<h2>21. Simple Elevator Simulation</h2>
+<pre>
+#include &lt;stdio.h&gt;
+int main(){
+    int currentFloo=2, targetFloo=6;
+    if(currentFloor==targetFloor) printf("Already on floor %d\\n", currentFloo);
+    else if(targetFloor&gt;currentFloor){
+        printf("Moving Up:\\n");
+        for(int i=currentFloor+1;i&lt;=targetFloor;i++) printf("Floor %d\\n", i);
+    } else {
+        printf("Moving Down:\\n");
+        for(int i=currentFloor-1;i&gt;=targetFloor;i--) printf("Floor %d\\n", i);
+    }
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,6)</td><td>Moves up: Floor 3 4 5 6</td></tr>
+<tr><td>(5,2)</td><td>Moves down: Floor 4 3 2</td></tr>
+<tr><td>(3,3)</td><td>Already on floor 3</td></tr>
+</table>
+<hr>
+
+<!-- 22. Maximum Even Number from Digits -->
+<h2>22. Maximum Even Number from Digits</h2>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int cmp_desc(const void *a, const void *b){ return *(int*)b - *(int*)a; }
+int main(){
+    int n=123, digits[10]={0}, temp=n, idx=0;
+    while(temp>0){ digits[idx++]=temp%10; temp/=10; }
+    qsort(digits idx, sizeo(int), cmp_desc);
+    int lastEven=-1;
+    for(int i=idx-1;i&gt;=0;i--) if(digits[i]%2==0){ lastEven=i; break; }
+    if(lastEven==-1){ printf("-1\\n"); return 0; }
+    int res[20], r=0;
+    for(int i=0;i&lt;idx;i++) if(i!=lastEven) res[r++]=digits[i];
+    res[r++]=digits[lastEven];
+    printf("Input: %d\\nLargest even number: ", n);
+    for(int i=0;i&lt;r;i+) printf("%d", res[i]);
+    printf("\\n")
+    return 0;
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>1234</td><td>4312</td></tr>
+<tr><td>531</td><td>-1</td></tr>
+<tr><td>8201</td><td>8210</td></tr>
+</table>
+<hr>
+
+
+<!-- 23. NumberPalindromeChecker -->
+<h2>23. NumberPalindromeChecker</h2>
+<pre>
+#include <stdio.h>
+int reverseNumber(int num) {
+    int reversed = 0;
+    int temp = num;
+
+    while (temp != 0) {
+        int digit = temp % 10;
+        reversed = reversed * 10 + digit;
+        temp = temp / 10;
+    }
+
+    return reversed;
+}
+int isNumberPalindrome(int num) {
+    if (num <= 0) {
+        return 0; // false for negative numbers
+    }
+    int reversed = reverseNumber(num);
+    return num = reversed;
+}
+
+int main() {
+    int testNumbers[] = {12321, 45654, 12345, -121, 0, 10, 1001};
+    int length = sizeof(testNumbers) / sizeof(testNumbers[0]);
+
+    for (int i = 0; i < length; i+) {
+        int number = testNumbers[i];
+        int result = isNumberPalindrome(number);
+
+        printf("Number: %d\n", numbe);
+        if (result) {
+            printf("Is Palindrome? true\n");
+        } else {
+            printf("Is Palindrome? false\n");
+        }
+        printf("-----------------------\n");
+    }
+    return 0
+}
+<img src="./NumberPalindromeChecker.png" alt="" srcset="">
+</pre>
+
+<!-- 24. PrimeFactorization -->
+<h2>24. PrimeFactorization</h2>
+<pre>
+#include <stdio.h>
+
+void printPrimeFactors(int num) {
+    printf("Prime factors of %d are: ", nu);
+    int temp = num;
+
+    while (temp % 2 == 0) {
+        printf(" ");
+        temp = temp / 2
+    }
+
+    for (int i = 3; i * i <= temp; i += 2) {
+        while (temp % i == 0) {
+            printf("%d ", i);
+            temp = temp / i;
+        }
+    }
+
+   
+    if (temp > 2) {
+        printf("%d", temp)
+    }
+
+    printf("\n");
+}
+
+int main() {
+    int testNumbers[] = {28, 45, 60, 13};
+    int length = sizeof(testNumbers) / sizeof(testNumbers[0]);
+
+    for (int i = 0; i < length; i++) {
+        int number = testNumbers[];
+        printPrimeFactors(number);
+    }
+
+    return 0;
+}
+
+
+
+<img src="./PrimeFactorization.png" alt="" srcset="">
+</pre>
+
+
+<!-- 25. PalindromePartitionCounter -->
+<h2>25. PalindromePartitionCounter</h2>
+<pre>
+#define LEN 
+
+int putchar(int c)
+int printf(const char *format ...);
+
+int isPalindrome(char  s, int start, int end){
+    while(start < end){
+        if(s[start] != s[end]) return 0;
+        start++;
+        end--
+    }
+    return 
+}
+
+int countPartitions(char *s, int start, int len){
+    if(start == len) return 1;
+    int i, count = 0;
+    for(i = start; i < len; i++){
+        if(isPalindrome(s, start, i)){
+            count += countPartitions(s, i+1, len);
+        }
+    }
+    return count;
+}
+
+int main(){
+    char *s = "aab";
+    int count = countPartitions(s, 0, 3);
+    char *msg = "Total palindromic partitions: ";
+    int i = 0;
+    while(msg[i]) putchar(msg[i++]);
+    printf("%d\n", count);
+    return 0;
+}
+
+-----------------------------------------------------------------------
+Output:
+Total palindromic partitions: 2
+
+
+Test cases:
+
+Input: "aab"
+
+
+
+
+</pre>
+
+<!-- 26.NQueensSolver -->
+<h2>26. NQueensSolver</h2>
+<pre>
+#define N 4
+
+int board[N][N];
+
+int putchar(int c);
+int printf(const char *format, ...);
+
+int isSafe(int row, int co){
+    int i, j;
+    for(i = 0; i < col; i++){
+        if(board[row][i]) return 0;
+    }
+    for(i=row, j=col; i>=0 && j>=0; i--, j--){
+        if(board[i][j]) return 0;
+    }
+    for(i=row, j=col; i<N && j>=0; i++, j--){
+        if(board[i][]) return 0;
+    }
+    return 1;
+}
+
+int solve(int col){
+    if(col >= N) return 
+    int i;
+    for(i = 0; i < N; i++){
+        if(isSafe(i, col)){
+            board[i][col] = 1;
+            if(solve(col + 1)) return 1;
+            board[i][col] = 0;
+        }
+    }
+    return 
+}
+
+void printBoard(){
+    int i, j;
+    for(i = 0; i < N; i++){
+        for(j = 0; j < N; j++){
+            printf("%d ", board[i][j])
+        }
+        printf("\n")
+    }
+}
+
+int main(){
+    int success = solve(0);
+    if(success){
+        char *msg = "Solution:\n";
+        int i = 0;
+        while(msg[i]) putchar(msg[i++]);
+        printBoard();
+    } else {
+        char *msg = "No solution found\n";
+        int i = 0;
+        while(msg[i]) putchar(msg[i++]);
+    }
+    return 0;
+}
+
+-----------------------------------------------------------------
+Output:
+
+0 1 0 0 
+0 0 0 1 
+1 0 0 0 
+0 0 1 0
+
+Test cases:
+
+Solves for N=4
+
+
+
+</pre>
+
+
+<!-- 27.BinaryTreeInorderTraversal -->
+<h2>27. BinaryTreeInorderTraversal</h2>
+<pre>
+#define MAX 100
+
+int leftChild[MAX];
+int rightChild[MAX
+
+int putchar(int c);
+int printf(const char -format, ...);
+
+void inorder(int node){
+    if(node == -1) return;
+    inorder(leftChild[node]);
+    printf("%d ", node);
+    inorder(rightChild[node]);
+}
+
+int main(){
+    int root = 
+
+    leftChild[0] = 1;
+    rightChild[0] = 2;
+    leftChild[1] = 3;
+    rightChild[1] = 4;
+    leftChild[2] = -1;
+    rightChild[2] = 5;
+    leftChild[3] = -1;
+    rightChild[3] = -1;
+    leftChild[4] = -1;
+    rightChild[4] = -1;
+    leftChild[5] = -1;
+    rightChild[5] = -1
+
+    char *msg = "Inorder traversal: ";
+    int i=0;
+    while(msg[i]) putchar(msg[i++]);
+    inorder(root);
+    putchar('\n')
+
+    return 0;
+}
+
+-----------------------------------------------------------------------
+Output:
+Inorder traversal: 3 1 4 0 2 5
+Test cases:
+        0
+       / \
+      1   2
+     / \   \
+    3   4   5
+
+</pre>
+
+
+<!-- 28.TopologicalSort -->
+<h2>28. TopologicalSort</h2>
+<pre>
+#define V 6
+
+int graph[V][V] = {
+    {0, 1, 1, 0, 0, 0},
+    {0, 0, 0, 1, 0, 0},
+    {0, 0, 0, 1, 1, 0},
+    {0, 0, 0, 0, 0, 1},
+    {0, 0, 0, 0, 0, 1},
+    {0, 0, 0, 0, 0, 0}
+};
+
+int visited[V];
+int stack[V];
+int top = -1
+
+int putchar(int c);
+int printf(const char *format, ...);
+
+void push(int ){
+    stack[++top] 
+}
+
+int pop(){
+    if(top == -1) return -1;
+    return stack[top--];
+}
+
+void dfs(int v){
+    visited[v]  1
+    int i;
+    for(i = 0; i < V; i++){
+        if(graph[v][i] && !visited[i]){
+            dfs(i);
+        }
+    }
+    push(v);
+}
+
+int main(){
+    int i;
+    for(i = 0; i < V; i++) visited[i] = 0;
+    for(i = 0; i < V; i++){
+        if(!visited[i]){
+            dfs(i);
+        }
+    }
+    char *msg = "Topological Sort: ";
+    int j=0;
+    while(msg[j]) putchar(msg[j++]);
+    while(top != -1){
+        printf("%d ", pop());
+    }
+    putchar('\n');
+    return 0;
+}
+
+-----------------------------------------------------------------------
+
+Output:
+Topological Sort: 0 2 4 1 3 5 
+Test cases:
+Graph edges implied by matrix. One possible topological order:
+
+
+</pre>
+
+
+<!-- 29.. Knapsack01 -->
+<h2>29. . Knapsack01</h2>
+<pre>
+#define N 4
+#define W 
+
+int wt[N] = {1, 3, 4, 5}
+int val[N] = {1, 4, 5, 7}
+
+int max(int a, int ){
+    return (a > b) ? a : b
+}
+
+int knapsack(int i, int w){
+    if(i == N || w == 0) return 0;
+    if(wt[i] > w) return knapsack(i+1, w);
+    else return max(val[i] + knapsack(i+1, w - wt[i]), knapsack(i+1, w));
+}
+
+int putchar(int c)
+int printf(const char *format, ...);
+
+int main(){
+    int res = knapsack(0, W);
+    char *msg = "Max value: ";
+    int i=0;
+    while(msg[i]) putchar(msg[i++]);
+    printf("%d\n", res);
+    return 
+}
+
+---------------------------------------------------------------------------------
+Output:
+Max value: 9
+
+Test Case:
+Weights = {1,3,4,5}, Values = {1,4,5,7}, Max weight = 7
+
+
+</pre>
+
+
+<!-- 30.. x o x game  -->
+<h2>30.x o x game</h2>
+<pre>
+#include <stdio.h>
+
+char board[3][3];
+
+void initializeBoard() {
+    int i, j;
+    for (i = 0; i < 3; i++)
+        for (j = 0; j < 3; j++)
+            board[i][j] = ' ';
+}
+
+void printBoard() {
+    int i;
+    for (i = 0; i < 3; i++) {
+        printf(" %c | %c | %c ", board[i][0], board[i][1], board[i][2]);
+        if (i < 2)
+            printf("\n-----------\n");
+    }
+    printf("\n");
+}
+
+char checkWinner() {
+    int i;
+    for (i = 0; i < 3; i++) {
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+            return board[i][0];
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+            return board[0][i];
+    }
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ')
+        return board[0][0];
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')
+        return board[0][2];
+    int empty = 0;
+    for (i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (board[i][j] == ' ')
+                empty++;
+    if (empty == 0)
+        return 'D';
+    return 'N';
+}
+
+int makeMove(int row, int col, char player) {
+    if (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ')
+        return 0;
+    board[row][col] = player;
+    return 1;
+}
+
+int main() {
+    int row, col;
+    char currentPlayer = 'X';
+    char winner = 'N';
+
+    initializeBoard();
+
+    printf("Welcome to Tic Tac Toe!\n");
+    printf("Player X goes first.\n");
+
+    while (winner = 'N') {
+        printBoard()
+        printf("Player %c, enter row and column (0-2): ", currentPlayer);
+        if (scanf("%d %d", &row, &col) != 2) {
+            printf("Invalid input.\n");
+            return ;
+        }
+
+        if (!makeMove(row, col, currentPlayer)) {
+            printf("Invalid move! Try again.\n")
+            continue;
+        }
+
+        winner = checkWinner();
+
+        if (winner == '')
+            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+
+    printBoard();
+
+    if (winner == 'D')
+        printf("It's a draw!\n");
+    else
+        printf("Player %c wins!\n", winner)
+
+    return 
+}
+
+-----------------------------------------------------------------------
+
+input type
+
+0 0
+1 1
+0 1
+1 0
+0 2
+
+
+output
+
+Welcome to Tic Tac Toe!
+Player X goes first.
+   |   |   
+-----------
+   |   |   
+-----------
+   |   |   
+Player X, enter row and column (0-2):  X |   |   
+-----------
+   |   |   
+-----------
+   |   |   
+Player O, enter row and column (0-2):  X |   |   
+-----------
+   | O |   
+-----------
+   |   |   
+Player X, enter row and column (0-2):  X | X |   
+-----------
+   | O |   
+-----------
+   |   |   
+Player O, enter row and column (0-2):  X | X |   
+-----------
+ O | O |   
+-----------
+   |   |   
+Player X, enter row and column (0-2):  X | X | X 
+-----------
+ O | O |   
+-----------
+   |   |   
+Player X wins!
+</pre>
+
+</body>
+</html>

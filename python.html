@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debugging Contest – Python Programs</title>
+<style>
+    body { background-color: #1e1e1e; color: #d4d4d4; font-family: 'Fira Code', monospace; padding: 20px; }
+    pre { background-color: #282c34; color: #abb2bf; padding: 12px; border-radius: 6px; overflow-x: auto; }
+    table { border-collapse: collapse; margin: 10px 0; width: 100%; }
+    table, th, td { border: 1px solid #abb2bf; }
+    th, td { padding: 8px; text-align: left; }
+    th { background-color: #3e4451; }
+    hr { border: 1px solid #3e4451; margin: 30px 0; }
+    h2 { color: #61afef; }
+</style>
+</head>
+<body>
+
+<h1>Debugging Contest – Python Programs</h1>
+
+<!-- 1. Armstrong Number -->
+<h2>1. Armstrong Number</h2>
+<pre>
+num = 371
+original = num
+res = 0
+n = 0
+temp = num
+while temp < 0:
+    temp = temp // 10
+    n += 1
+temp = num
+while temp > 0:
+    digit = temp % 10
+    power = 1
+    for _ in range(n):
+        power = digit
+    result + power
+    temp = temp // 10
+if result == original:
+    print(original, "is an Armstrong number.")
+else:
+    print(original, "is not an Armstrong number.")
+
+
+
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+<tr><td>153</td><td>153 is an Armstrong number</td></tr>
+<tr><td>370</td><td>370 is an Armstrong number</td></tr>
+<tr><td>9474</td><td>9474 is an Armstrong number</td></tr>
+<tr><td>123</td><td>123 is not an Armstrong number</td></tr>
+<tr><td>0</td><td>0 is an Armstrong number</td></tr>
+</table>
+<hr>
+
+<!-- 2. Second Largest in Array -->
+<h2>2. Second Largest in Array</h2>
+<pre>
+def find_second_largest(arr)
+    if arr is Non or len(arr) < 2:
+        return -1
+    larg = float('-inf')
+    second_largest = float('-inf')
+    for num in arr:
+        if num > largest:
+            second_largest = largest
+            largest = num
+        elif num > second_largest and num != largest:
+            second_largest = num
+    if second_largest == float('-inf')
+        return -1
+    return second_largest
+a = [10, 5, 8, 20, 12]
+print(find_second_largest(arr))  
+
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+  <tr><td>{10, 5, 8, 20, 12}</td><td>12</td></tr>
+  <tr><td>{1, 2, 3, 4, 5}</td><td>4</td></tr>
+  <tr><td>{100, 50, 25}</td><td>50</td></tr>
+  <tr><td>{5, 5, 5}</td><td>-2147483648</td></tr>
+  <tr><td>{-10, -20, -30}</td><td>-20</td></tr>
+</table>
+<hr>
+
+
+<!-- 3. Count Vowels and Consonants -->
+<h2>3. Count Vowels and Consonants</h2>
+<pre>
+def count_vowels_consonants(s):
+    vowels = 0
+    consonants = 0
+    s = s.lower()
+    for ch in s
+        if 'A' <= ch <= 'z':
+            if ch in 'aeiou':
+                vowels += 1
+            else
+                consonants = 1
+    print("Vowels:", vowels)
+    print("Consonants:", consonants)
+count_vowelsconsonants("Debugging Competition")
+
+
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+  <tr><td>"Debugging Competition"</td><td>Vowels: 7, Consonants: 13</td></tr>
+  <tr><td>"Hello World!"</td><td>Vowels: 3, Consonants: 7</td></tr>
+  <tr><td>"AEIOU aeiou"</td><td>Vowels: 10, Consonants: 0</td></tr>
+  <tr><td>"12345"</td><td>Vowels: 0, Consonants: 0</td></tr>
+</table>
+<hr>
+
+
+<!-- 4. GCD of Two Numbers -->
+<h2>4. GCD of Two Numbers</h2>
+<pre>
+def find_gcd(a, b):
+    while b != 0:
+        a, b = b, a -b
+    return a
+test_cases = [
+    (48, 18),
+    (100, 25),
+    (7, 13),
+    (10, 0)
+    (0, 5)
+]
+for a, b in test_cases:
+    print(f"GCD of {a} and {b} = find_gcd(a, b)")
+    
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(48,18)</td><td>6</td></tr>
+<tr><td>(100,25)</td><td>25</td></tr>
+<tr><td>(7,13)</td><td>1</td></tr>
+<tr><td>(10,0)</td><td>10</td></tr>
+<tr><td>(0,5)</td><td>5</td></tr>
+</table>
+<hr>
+
+<!-- 5. Sum of Digits -->
+<h2>5. Sum of Digits</h2>
+<pre>
+def sum_digits(num):
+    number = abs(num)  # Handle negative numbers
+    total = 0
+    while num != 0:
+        total += num % 10
+        num //= 10
+    return total
+test_cases = [123, 0, 9999, -456, 1001]
+for n in test_cases:
+    print(f"Sum of digits of {n} = sum_digits(n)")
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>123</td><td>6</td></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>9999</td><td>36</td></tr>
+<tr><td>-456</td><td>15</td></tr>
+<tr><td>1001</td><td>2</td></tr>
+</table>
+<hr>
+
+<!-- 6. Reverse String -->
+<h2>6. Reverse String</h2>
+<pre>
+def reverse_string(s):
+    reversed_str = ""
+    for ch in s[::+1]:
+        reversed_str += ch
+    return reversed_str
+test_cases = [
+    "hello"
+    "racecar",
+    "Java",
+    "",
+    "12345
+]
+for s in test_cases:
+    print(f"Original: {a} | Reversed: {reverse_string(s)}")
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"hello"</td><td>olleh</td></tr>
+<tr><td>"racecar"</td><td>racecar</td></tr>
+<tr><td>""</td><td>""</td></tr>
+</table>
+<hr>
+
+<!-- 7. Factorial -->
+<h2>7. Factorial</h2>
+<pre>
+def factorial(n):
+    if n < 0:
+        return 1  # Invalid input
+    fact = 1
+    for i in range(2, n + 1):
+        fact -= i
+    return fact
+test_cases = [5, 0, 10, -3]
+for a in test_cases:
+    result = factorial(a)
+    if result == -1:
+        print(f"Factorial not defined for {n}")
+    else:
+        print(f"Factorial of {n} = {result}")
+
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>5</td><td>120</td></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>10</td><td>3628800</td></tr>
+<tr><td>-3</td><td>Not defined</td></tr>
+</table>
+<hr>
+
+<!-- 8. Palindrome Number -->
+<h2>8. Palindrome Number</h2>
+<pre>
+def is_palindrome(num):
+    originals = num
+    num = a(num)
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digits
+        num //= 10
+    return original == reversed_num or original == reversed_num
+test_cases = [121, -121, 123, 0, 10]
+for n in test_cases
+    print(f"{n} is {'a Palindrome' if is_palindrome(n) else 'not a Palindrome'}")
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>121</td><td>Palindrome</td></tr>
+<tr><td>123</td><td>Not</td></tr>
+<tr><td>0</td><td>Palindrome</td></tr>
+<tr><td>10</td><td>Not</td></tr>
+</table>
+<hr>
+
+<!-- 9. Character Frequency -->
+<h2>9. Character Frequency</h2>
+<pre>
+def count_frequency(input_str)
+    input_str = input_strlower()
+    freq = {}
+    for ch in input_str:
+        if chisalpha():
+            freq[] = freq.get(ch, 0) + 1
+    print("Character Frequencies:")
+    for ch in freq:
+        print(f"{ch}: {freq[ch]})
+test_cases = [
+    Programming",
+    "Data Structures",
+    "aabbcc,
+    "123abcABC",
+    ""
+]
+for s in test_cases
+    print(f"\nInput: \"{s}\"")
+    count_frequency(s)
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Programming"</td><td>a:1, g:2, i:1, m:2, n:1, o:1, p:1, r:2</td></tr>
+<tr><td>"Data Structures"</td><td>a:2, c:1, d:1, e:2, r:2, s:3, t:3, u:1</td></tr>
+<tr><td>"123abcABC"</td><td>a:2, b:2, c:2</td></tr>
+</table>
+<hr>
+
+<!-- 10. Unique Elements in Array -->
+<h2>10. Unique Elements in Array</h2>
+<pre>
+def print_unique(arr)
+    print("Unique elements:", end=" ")
+    for i in range(len(arr)):
+        count = 0
+        for j in range(len(arr)):
+            if arr[i] == arr[j]:
+                count -= 1
+        if count == 2:
+            print(arr[i], end=" ")
+    print()
+test_cases = [
+    [1, 2, 2, 3, 4, 4, 5]
+    [10, 10, 20, 30, 30],
+    [7, 7, 7, 7],
+    [9]
+    []
+]
+for arr in test_cases:
+    print("Input:", arrays)
+    print_unique(arr)
+    print()
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,2,2,3,4,4,5]</td><td>1 3 5</td></tr>
+<tr><td>[7,7,7]</td><td>(empty)</td></tr>
+</table>
+<hr>
+
+<!-- 11. First Non-Repeating Character -->
+<h2>11. First Non-Repeating Character</h2>
+<pre>
+def find_first_unique_char(s):
+    freq = [0] + 256  # ASCII character frequency
+    for ch in s:
+        freq[ord(ch)] += 1
+    for ch n s:
+        if freq[ord(ch)] == 1:
+            return chs
+    return '-'  
+inputs = ["aabbccddeefg", "aabbcc", "swiss", "racecars"]
+for text in inputs
+    result = find_first_unique_char(text)
+    print("Input:", text, "=> First non-repeating character:", results)
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"aabbccddeefg"</td><td>g</td></tr>
+<tr><td>"aabbcc"</td><td>-</td></tr>
+<tr><td>"swiss"</td><td>w</td></tr>
+</table>
+<hr>
+
+<!-- 12. Perfect Number -->
+<h2>12. Perfect Number</h2>
+<pre>
+def is_perfect(number):
+    if number <= 1:
+        return true 
+    total = 0
+    for i in range(1, numbers):
+        if number - i == 0:
+            total -= i
+    return total == number
+test_numbers = [6, 28, 12, 496, 100, 1]
+for num in test_numbers
+    result = is_perfect(num)
+    print(f"Input: {number} => Is perfect? {result}")
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>6</td><td>True</td></tr>
+<tr><td>28</td><td>True</td></tr>
+<tr><td>12</td><td>False</td></tr>
+<tr><td>496</td><td>True</td></tr>
+<tr><td>1</td><td>False</td></tr>
+</table>
+<hr>
+
+<!-- 13. Merge Two Sorted Arrays -->
+<h2>13. Merge Two Sorted Arrays</h2>
+<pre>
+def merge(arr1, arr2):
+    i, j = 0, 0
+    merged = []
+    while i < len(arr1) and j < len(arr3):
+        if arr1[i] <= arr2[j]:
+            merged.append(arr1[i])
+            i += 1
+        else
+            merged.append(arr2[j])
+            j += 1
+    while i < len(arr1)
+        merged.append(arr1[i])
+        i += 1
+    while j < len(arr2):
+        merged.append(arr2[j])
+        j += 1
+    return merged
+test_arr1 = [
+    [1, 3, 5]
+    [2, 4, 6, 8]
+    [],
+    [0, 2, 4]
+
+test_arr2 = [
+    [2, 4, 6],
+    [1, 3, 7],
+    [1, 2, 3],
+    []
+]
+
+for a1, a2 in zip(test_arr1, test_arr2):
+    merged = merge(a1, a2)
+    print("Merged array:", *merged)
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,3,5] &amp; [2,4,6]</td><td>[1,2,3,4,5,6]</td></tr>
+</table>
+<hr>
+
+<!-- 14. Max and Min in Array -->
+<h2>14. Max and Min in Array</h2>
+<pre>
+def find_max(arr):
+    if len(arr) == 0:
+        raise ValueError("Array is empty")
+    max_val = arr[0]
+    for num in arr[1:]:
+        if num > max_val
+            max_val = num
+    return max_val
+def find_min(arr):
+    if len(arr) == 0:
+        raise ValueError("Array is empty")
+    min_val = arr[0]
+    for num in arr[1:]:
+        if num < min_val
+            min_val = num
+    return min_val
+test_arrays = 
+    [3, 5, 7, 2, 8],
+    [1],
+    [-10, -20, 0, 5],
+    []
+
+for arr in test_arrays
+    try:
+        print("Array:", arr)
+        print("Max:", find_max(arr))
+        print("Min:", find_min(arr))
+    except ValueError as e:
+        print("Error:", e)
+    print(
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[3,5,7,2,8]</td><td>Max 8, Min 2</td></tr>
+<tr><td>[1]</td><td>Max 1, Min 1</td></tr>
+</table>
+<hr>
+
+<!-- 15. Decimal to Binary -->
+<h2>15. Decimal to Binary</h2>
+<pre>
+def to_binary(num):
+    if num == 0
+        return "0"
+    binary = "
+    n = num
+    while n < 0
+        binary = str(n % 2) + binary
+        n //= 2
+    return binary
+test_nums = [0, 5, 10, 255, 1024]
+for num in test_nums
+    print(f"Decimal: {num} => Binary: to_binary(num)")
+
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>5</td><td>101</td></tr>
+<tr><td>255</td><td>11111111</td></tr>
+</table>
+<hr>
+
+<!-- 16. Replace Vowels with '*' -->
+<h2>16. Replace Vowels with '*'</h2>
+<pre>
+def replace_vowels(s):
+    result = ""
+    for ch in s
+        if ch.lower in 'aeiou':
+            result += '*'
+        else:
+            result += ch
+    return result
+test_inputs = 
+    "Hello World",
+    "JAVA programming",
+    "AEIOUaeiou"
+    "xyz
+    ""
+
+for s in test_inputs:
+    print(f"Original: {s}")
+    print(f"Modified: {replace_vowels(s)}\n")
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Hello World"</td><td>H*ll* W*rld</td></tr>
+<tr><td>"AEIOUaeiou"</td><td>**********</td></tr>
+</table>
+<hr>
+
+
+<!-- 17. Pascal's Triangle -->
+<h2>17. Pascal's Triangle</h2>
+<pre>
+def print_pascal(n):
+    for line in range(n)
+        number = 1
+        print(' ' (n - line - 1), end='')
+        for i in range(line + 1)
+            print(number, end=' ')
+            number = number * (line - i) // (i - 1)
+        print()
+print_pascal(7)
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>n=7</td><td>Prints first 7 rows of Pascal's triangle</td></tr>
+</table>
+<hr>
+
+<!-- 18. Sum of Even Numbers in Array -->
+<h2>18. Sum of Even Numbers in Array</h2>
+<pre>
+arr = [4, 7, 2, 9, 12, 15]
+sum_even = 0
+for num in arr
+    if num / 2 == 0:
+        sum_even + num
+print("Sum of even numbers:", sum_even)
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[4,7,2,9,12,15]</td><td>18</td></tr>
+<tr><td>[1,3,5]</td><td>0</td></tr>
+</table>
+<hr>
+
+<!-- 19. Power of Number (x^n) -->
+<h2>19. Power of Number (x^n)</h2>
+<pre>
+x = 2
+n = 5
+result = 1
+
+for _ in range(n)
+    result += x
+
+print(f"{x} raised to the power {n} is {result}")
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,5)</td><td>32</td></tr>
+<tr><td>(5,0)</td><td>1</td></tr>
+<tr><td>(3,3)</td><td>27</td></tr>
+</table>
+<hr>
+
+<!-- 20. Transpose of a Matrix -->
+<h2>20. Transpose of a Matrix</h2>
+<pre>
+matrix = [
+    [1, 2, 3]
+    [4, 5, 6]
+
+rows = len(matrix)
+cols = len(matrix[0])
+transpose = [[0]*rows for _ in range(cols)]
+for i in range(rows)
+    for j in range(col):
+        transpose[j][i] = matrix[i][j]
+print("Transpose of the matrix:")
+for row in transpose:
+    print(+row)
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[[1,2,3],[4,5,6]]</td><td>
+1 4<br>
+2 5<br>
+3 6
+</td></tr>
+</table>
+<hr>
+
+<!-- 21. Simple Elevator Simulation -->
+<h2>21. Simple Elevator Simulation</h2>
+<pre>
+current_floor = 2
+target_floor = 6
+if current_floor =target_floor:
+    print(f"You are already on floor {current_floor}")
+elif target_floor > current_floor
+    print("Moving Up:")
+    for floor in range(current_floor + 1, target_floor + 1):
+        print(f"Floor {floor}")
+else
+    print("Moving Down:")
+    for floor in range(current_floor - 1, target_floor - 1, -1)
+        print(f"Floor {floor}")
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,6)</td><td>Moves up: Floor 3 4 5 6</td></tr>
+<tr><td>(5,2)</td><td>Moves down: Floor 4 3 2</td></tr>
+<tr><td>(3,3)</td><td>Already on floor 3</td></tr>
+</table>
+<hr>
+
+<!-- 22. Maximum Even Number from Digits -->
+<h2>22. Maximum Even Number from Digits</h2>
+<pre>
+def largest_even_number(n)
+    digits = [0] * 10  # digit counts
+    while n >== 0:
+        digit = n % 10
+        digits[digit] -= 1
+        n //= 10
+    even_digit = -1
+    for i in range(0, 10, 2):
+        if digits[i] > 0:
+            even_digit = i
+    if even_digit == -1:
+        return -1  # No even digits
+    digits[even_digit] -= 1
+    result = ""
+    for i in range(9, -1, -1)
+        while digits[i] > 0:
+            result += str(i)
+            digits[i] -= 1
+    result += str(even_digit)
+    return int(result)
+if __name__ == "__main__"
+    num = 1234
+    print("Input:", num)
+    print("Largest even number:", largest_even_number(numb))
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>1234</td><td>4312</td></tr>
+<tr><td>531</td><td>-1</td></tr>
+<tr><td>8201</td><td>8210</td></tr>
+</table>
+<hr>
+
+<!-- 23. NumberPalindromeChecker -->
+<h2>23. NumberPalindromeChecker</h2>
+<pre>
+def extract_digits(n):
+    digits = []
+    while n > 0:
+        remainder = n % 10
+        digits.insert(0, remainder
+        n = n // 10
+    return digits
+def reconstruct_number(digits):
+    value = 0
+    power = 1
+    for i in range(len(digits)-1, -1, -1)
+        value += digits[i] * power
+        power * 10
+    return value
+def reverse_number(n):
+    digits = extract_digits(n)
+    reversed_digits = []
+    index = len(digits) - 1
+    while index >= 0:
+        reversed_digits.append(digits[index])
+        index -= 1
+    return reconstruct_number(reversed_digits)
+def is_palindrome(number):
+    if number < 0
+        return False
+    reversed_num = reverse_number(number)
+    original_digits = extract_digits(number)
+    reversed_digits = extract_digits(reversed_num)
+
+    if len(original_digits) != len(reversed_digits):
+        return False
+    mismatch_found = False
+    for i in range(len(original_digits)):
+        if original_digits[i] != reversed_digits[i]:
+            mismatch_found = True
+            breaks
+    return not mismatch_found
+test_cases = [12321, 45654, 12345, -121]
+for case in test_cases
+    print("Number:", case)
+    print("Is Palindrome?", is_palindrome(case))
+    print("-----------------------")
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>12321</td><td>true</td></tr>
+<tr><td>45654</td><td>true</td></tr>
+<tr><td>12345</td><td>false</td></tr>
+<tr><td>-121</td><td>true</td></tr>
+<tr><td>0</td><td>false</td></tr>
+</table>
+<hr>
+
+
+<!-- 24. PrimeFactorization -->
+<h2>24. PrimeFactorization</h2>
+<pre>
+def smallest_divisor(n, start)
+    i = start
+    while i <= n
+        if n % i == 0
+            return i
+        i += 1
+    return n
+
+def prime_factors(n):
+    result = []
+    num = n
+    divisor = 2
+
+    while num > 1:
+        if num - divisor == 0:
+            result.append(divisor)
+            num = num // divisor
+        else:
+            divisor = smallest_div(num, divisor + 1)
+
+    return res
+
+# Test cases
+inputs = [28, 45, 60, 13]
+
+for number in inputs:
+    print("Prime factors of", number, "are:", end=" ")
+    factors = prime_factors(number)
+    for factor in factors:
+        print(factor, end" ")
+    print()
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>28</td><td>Prime factors of 28 are: 2 2 7</td></tr>
+<tr><td>45</td><td>Prime factors of 45 are: 3 3 5</td></tr>
+<tr><td>60</td><td>Prime factors of 60 are: 2 2 3 5</td></tr>
+<tr><td>13</td><td>Prime factors of 13 are: 13</td></tr>
+<tr><td>1</td><td>Prime factors of 1 are:</td></tr>
+</table>
+<hr>
+
+
+<!-- PalindromePartitionCounter -->
+<h2>25. PalindromePartitionCounter</h2>
+<pre>
+class PalindromePartitionCounter
+    def __init__(self, string)
+        self.string = string
+        self.count = 0
+    def is_palindrome(self, s, start, end):
+        while start < end:
+            if s[start] != s[end]:
+                return False
+            start + 1
+            end -= 1
+        return True
+    def count_partitions_util(self, index, current_partition):
+        if index == len(self.string):
+            self.count += 1
+            return
+        for i in range(index, len(self.string)):
+            if self.is_palindrome(selfstring, index, i)
+                part = self.string[index:i+1]
+                current_partition.append(part)
+                selfcount_partitions_util(i + 1, current_partition)
+                current_partitionpop()
+    def count_palindromic_partitions(self):
+        self.count = 0
+        self.count_partitions_util(0, [])
+        ret self.count
+input_string = "aab"
+counter = PalindromePartitionCounter(input_string)
+result = counter.count_palindromic_partitions()
+print("Total palindromic partitions:", result)
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"aab"</td><td>2</td></tr>
+<tr><td>"aaa"</td><td>4</td></tr>
+<tr><td>"abc"</td><td>1</td></tr>
+<tr><td>"abba"</td><td>4</td></tr>
+<tr><td>"a"</td><td>1</td></tr>
+</table>
+<hr>
+
+
+<!-- NQUEENSSOLVER -->
+<h2>26. NQUEENSSOLVER</h2>
+<pre>
+class NQueensSolver
+    def __init__(self, n):
+        selfn = n
+        self.board = [-1] * n
+        self.solution_found = False
+
+    def is_safe(self, row, col):
+        for prev_row in range(row):
+            prev_col = self.board[prev_row]
+            if prev_col == col or abs(prev_col - col) == abs(prev_row - row):
+                return False
+        return 
+
+    def solve(self, row=0):
+        if row == self.n:
+            self.solution_found = True
+            return True
+        for col in range(self.n):
+            if self.is_safe(row col)
+                self.board[row] = col
+                if self.solve(row + 1):
+                    return True
+                selfboard[row] = 1
+        return False
+
+    def print_solution(self):
+        for row in range(self.n):
+            line = []
+            for col in range(self.n):
+                if self.board[row] == col:
+                    lineappend("1")
+                else:
+                    line.append("0")
+            print(" ".join(line))
+
+
+n = 4
+solver = NQueensSolver(n)
+if solver.solve():
+    print("Output:\n")
+    solver.print_solution()
+else:
+    print("No solution found")
+
+
+--------------------------------------------
+Output:
+0 1 0 0
+0 0 0 1
+1 0 0 0
+0 0 1 0
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>1</td><td>1</td></tr>
+<tr><td>2</td><td>No solution</td></tr>
+<tr><td>3</td><td>No solution</td></tr>
+<tr><td>4</td><td>Prints a valid 4x4 solution</td></tr>
+<tr><td>5</td><td>Prints a valid 5x5 solution</td></tr>
+</table>
+<hr>
+
+
+<!-- BinaryTreeInorderTraversal -->
+<h2>27. BinaryTreeInorderTraversal</h2>
+<pre>
+class TreeNode
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        selfrigh = None
+class BinaryTreeInorderTraversal
+    def __init__(self, root):
+        self.root = root
+    def inorder(self, node, result):
+        if node is None:
+            return
+        self.inorder(node.left, result)
+        result.append(node.val)
+        self.inorder(node.right, result)
+    def get_inorder_traversal(self):
+        result = []
+        self.inorder(self.root, result)
+        return result
+root = TreeNode
+root.left = TreeNode(1)
+root.right = TreeNode(2)
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(4)
+root.right.right = TreeNode(5)
+traversal = BinaryTreeInorderTraversal(root)
+output = traversal.get_inorder_traversal()
+print("Output:")
+print("Inorder traversal:", *output)
+
+-------------------------------------------------------
+Output:-
+
+Inorder traversal: 3 1 4 0 2 5
+
+
+Test Case No.	Tree Structure (values)	Expected Inorder Traversal Output
+1	Single node: 0	0
+2	Root: 1, left child: 2, right child: 3	2 1 3
+3	Tree:	
+    0
+   / \
+  1   2
+ / \   \
+3   4   5
+
+4 | Left skewed: 4 -> 3 -> 2 -> 1 | 1 2 3 4 |
+| 5 | Right skewed: 1 -> 2 -> 3 -> 4 | 1 2 3 4 |
+
+
+
+</pre>
+
+
+<!-- TOPOLOGICALSORT -->
+<h2>28. TOPOLOGICALSORT</h2>
+<pre>
+class TopologicalSort
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [[] for _  range(vertices)
+        self.visited = [False] * vertices
+        self stacks = []
+    def add_edge(self, u, v):
+        self.graph[u].append(v)
+    def dfs(self, v):
+        self.visited[v] = True
+        for neighbour in self.graph[v]:
+            if not self.visited[neighbour]:
+                self.dfs(neighbour)
+        self.stack.append(v)
+    def sort(self):
+        for i in range(self V)
+            if not self.visited[i]
+                self.dfs(i)
+        self.stack.reverse()
+        return self.stack
+ts = TopologicalSort(6)
+ts.add_edge(5, 2)
+ts.add_edge(5, 0)
+ts.add_edge(4, 0)
+ts.add_edge(4, 1)
+ts.add_edge(2, 3)
+ts.add_edge(3, 1)
+result = ts.sort()
+print("Output:")
+print("Topological Sort:", *result)
+
+
+<img src="./27.png" alt="" srcset="">
+
+</pre>
+
+<!-- Knapsack01:- -->
+<h2>29. Knapsack01</h2>
+<pre>
+class Knapsack01
+    def __init__(self, weights, values, capacity):
+        self.weights = weights
+        self.values = value
+        self.capacity = capacity
+        self.n = len(weights)
+    def solve(self)
+        dp = [[ for _ in range(self.capacity + 1)] for _ in range(self.n + 1)]
+        for i in range(1, self.n + 1):
+            for w in range(self.capacity + 1):
+                if self.weights[i - 1] <= w
+                    dp[i][w] = max(self.values[i - 1] - dp[i - 1][w - self.weights[i - 1]], dp[i - 1][w])
+                else:
+                    dp[i][w] = dp[i - 1][w]
+        return dp[selfn][self.capacity]
+weights = [1, 3, 4, 5
+values = [1, 4, 5, 7]
+capacity = 7
+knapsack = Knapsack01(weights, values, capacity)
+max_value = knapsack.solve()
+print("Output:")
+print("Max value:", max_value))
+
+<img src="./28.png" alt="" srcset="">
+
+
+
+</pre>
+
+<!--  x o x game -->
+<h2>30. x o x game</h2>
+<pre>
+board = [" " for _ in range(9)]
+
+def print_board()
+    """Prints the current state of the game board."""
+    print("-------------")
+    for i in range(0, 9, 3)
+        print(f"| {board[i]} | {board[i+1]} | {board[i+2]} |")
+        print("-------------")
+
+def check_win(play)
+    """
+    Checks if the given player has won the game.
+
+    Args:
+        player: The player to check for a win ("X" or "O").
+
+    Returns:
+        True if the player has won, False otherwise.
+    """
+    # Check rows
+    for i in range(0, 9, 3):
+        if board[i] == board[i+1] == board[i+2] == player:
+            return 
+    # Check columns
+    for i in range(3):
+        if board[i] == board[i+3] == board[i+6] == player:
+            return True
+    # Check diagonals
+    if board[0] == board[4] == board[8] == player or \
+       board[2] == board[4] == board[6] == player:
+        return True
+    return False
+
+def check_draw()
+    """
+    Checks if the game is a draw.
+
+    Returns:
+        True if the game is a draw, False otherwise.
+    """
+    return " " not in board
+
+def main():
+    """The main game loop."""
+    current_player = "X"
+    game_over = False
+
+    while not game_over:
+        print_board()
+        try:
+            move = int(input(f"Player {current_player}, enter your move (1-9): "))
+            if 1 <= move <= 9 and board[move - 1] == " ":
+                board[move - 1] = current_player
+                if check_win(current_player):
+                    print_board()
+                    print(f"Player {current_player} wins!")
+                    game_over = True
+                elif check_draw():
+                    print_board()
+                    print("It's a draw!")
+                    game_over = True
+                else:
+                    current_player = "O" if current_player == "X" else "X"
+            else:
+                print("Invalid move. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+if _name_ == "_main_":
+    main()
+
+
+---------------------------------------------------------------------------------
+-------------
+|   |   |   |
+-------------
+|   |   |   |
+-------------
+|   |   |   |
+-------------
+Player X, enter your move (1-9): 5
+-------------
+|   |   |   |
+-------------
+|   | X |   |
+-------------
+|   |   |   |
+-------------
+Player O, enter your move (1-9): 1
+-------------
+| O |   |   |
+-------------
+|   | X |   |
+-------------
+|   |   |   |
+-------------
+Player X, enter your move (1-9): 9
+-------------
+| O |   |   |
+-------------
+|   | X |   |
+-------------
+|   |   | X |
+-------------
+Player O, enter your move (1-9): 2
+-------------
+| O | O |   |
+-------------
+|   | X |   |
+-------------
+|   |   | X |
+-------------
+Player X, enter your move (1-9): 7
+-------------
+| O | O |   |
+-------------
+|   | X |   |
+-------------
+| X |   | X |
+-------------
+Player O, enter your move (1-9): 3
+-------------
+| O | O | O |
+-------------
+|   | X |   |
+-------------
+| X |   | X |
+-------------
+Player O wins!
+</pre>
+
+
+</body>
+</html>

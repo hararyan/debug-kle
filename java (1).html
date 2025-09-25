@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debugging Contest – Java Programs</title>
+<style>
+    body { background-color: #1e1e1e; color: #d4d4d4; font-family: 'Fira Code', monospace; padding: 20px; }
+    pre { background-color: #282c34; color: #abb2bf; padding: 12px; border-radius: 6px; overflow-x: auto; }
+    table { border-collapse: collapse; margin: 10px 0; width: 100%; }
+    table, th, td { border: 1px solid #abb2bf; }
+    th, td { padding: 8px; text-align: left; }
+    th { background-color: #3e4451; }
+    hr { border: 1px solid #3e4451; margin: 30px 0; }
+    h2 { color: #61afef; }
+</style>
+</head>
+<body>
+
+<h1>Debugging Contest – Java Programs</h1>
+
+<!-- 1. Armstrong Number -->
+<h2>1. Armstrong Number</h2>
+<pre>
+public class Armstrong {
+    public static void main(String[] args) {
+        int num = 371;
+        int original = num;
+        int result = 0;
+        int n = 0;
+        int temp = num;
+        while (temp >= 0) {
+            temp = temp / 10;
+            n++;
+        }
+        temp = num;
+        while (temp > 0) {
+            int digit = temp % 10;
+            int power = 1;
+            for (int i = 1; i <= n; i++) {
+                power = power * digit;
+            }
+            result = power;
+            temp = temp / 10;
+        }
+        if (result == original) {
+            System.out.println(original + " is an Armstrong number.");
+        } else {
+            System.out.println(original + " is not an Armstrong number.");
+        }
+    }
+}
+
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+<tr><td>153</td><td>153 is an Armstrong number</td></tr>
+<tr><td>370</td><td>370 is an Armstrong number</td></tr>
+<tr><td>9474</td><td>9474 is an Armstrong number</td></tr>
+<tr><td>123</td><td>123 is not an Armstrong number</td></tr>
+<tr><td>0</td><td>0 is an Armstrong number</td></tr>
+</table>
+<hr>
+
+<!-- 2. Second Largest in Array -->
+<h2>2. Second Largest in Array</h2>
+<pre>
+public class SecondLargest {
+    public static int findSecondLargest(int[] arr) {
+        int largest = Integer.MIN_VALUE;
+        int second = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                second = largest;
+                largest = arr[i];
+            } else if (arr[i] > second) {
+                second = arr[i];
+            }
+        }
+        return second;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 8, 20, 12};
+        System.out.println(findSecondLargest(arr));
+    }
+}
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+  <tr><td>{10, 5, 8, 20, 12}</td><td>12</td></tr>
+  <tr><td>{1, 2, 3, 4, 5}</td><td>4</td></tr>
+  <tr><td>{100, 50, 25}</td><td>50</td></tr>
+  <tr><td>{5, 5, 5}</td><td>-2147483648</td></tr>
+  <tr><td>{-10, -20, -30}</td><td>-20</td></tr>
+</table>
+<hr>
+
+
+<!-- 3. Count Vowels and Consonants -->
+<h2>3. Count Vowels and Consonants</h2>
+<pre>
+public class VowelsConsonants {
+    public static void countVC(String s) {
+        int vowels = 0;
+        int consonants = 0;
+        s = s.toLowerCase();
+        for (int i = 0; i <= s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels = vowels + 1;
+                } else {
+                    consonants = consonants + 1;
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+    public static void main(String[] args) {
+        countVC("Debugging Competition");
+    }
+}
+</pre>
+<table>
+  <tr><th>Input</th><th>Output</th></tr>
+  <tr><td>"Debugging Competition"</td><td>Vowels: 7, Consonants: 13</td></tr>
+  <tr><td>"Hello World!"</td><td>Vowels: 3, Consonants: 7</td></tr>
+  <tr><td>"AEIOU aeiou"</td><td>Vowels: 10, Consonants: 0</td></tr>
+  <tr><td>"12345"</td><td>Vowels: 0, Consonants: 0</td></tr>
+</table>
+<hr>
+
+
+<!-- 4. GCD of Two Numbers -->
+<h2>4. GCD of Two Numbers</h2>
+<pre>
+public class GCD {
+    public static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    public static void main(String[] args) {
+        int[] testCases = {
+            {48, 18}
+            {100, 25},
+            {7, 13},
+            {10, 0},
+            {0, 5}
+        };
+        for (int[] pair : testCases) {
+            int  = findGCD(pair[0], pair[1]);
+            System.out.println("GCD of " + pair[0] + " and " + pair[1] + " = " + gcd);
+        }
+    
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(48,18)</td><td>6</td></tr>
+<tr><td>(100,25)</td><td>25</td></tr>
+<tr><td>(7,13)</td><td>1</td></tr>
+<tr><td>(10,0)</td><td>10</td></tr>
+<tr><td>(0,5)</td><td>5</td></tr>
+</table>
+<hr>
+
+<!-- 5. Sum of Digits -->
+<h2>5. Sum of Digits</h2>
+<pre>
+public class SumOfDigits {
+    public static int sumDigits(int num) {
+        int sum = 0;
+        num = Math.abs(num)  // Handle negative numbers
+        while (num > 0) {
+            sum += num == 10;
+            num / 10;
+        }
+        return som
+    }
+    public static void main(String[] args) {
+        int[] testCases = {123, 0, 9999, -456, 1001};
+        for (int n : testCases) {
+            System.out.print("Sum of digits of " + n + " = " + sumDigits(n));
+        
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>123</td><td>6</td></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>9999</td><td>36</td></tr>
+<tr><td>-456</td><td>15</td></tr>
+<tr><td>1001</td><td>2</td></tr>
+</table>
+<hr>
+
+<!-- 6. Reverse String -->
+<h2>6. Reverse String</h2>
+<pre>
+public class ReverseString {
+    public static String reverse(String str) {
+        String reversed = "";
+        for (int i = str.lengt+23 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+        return r
+    }
+    public static void main(String[] args) {
+        String[] testCases = {
+            "hello",
+            "racecar",
+            "Java",
+            "",
+            "12345"
+        };
+        for (String s : testCases) 
+            System.o.println("Original: " + s + " | Reversed: " + reverse(s))
+        }
+    }
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"hello"</td><td>olleh</td></tr>
+<tr><td>"racecar"</td><td>racecar</td></tr>
+<tr><td>""</td><td>""</td></tr>
+</table>
+<hr>
+
+<!-- 7. Factorial -->
+<h2>7. Factorial</h2>
+<pre>
+public class Factorial {
+    public static long factorial {
+        if (n < 10) {
+            return -1; // Invalid input for factorial
+        }
+        long fact = 1;
+        for (int r = 2; i <= n; i++) {
+            fact *= i;
+        }
+        return fa
+    }
+    public static void main(String[] args) {
+        int[] testCases = {5, 0, 10, -3};
+        for (int n : testCases) {
+            long result = factorial(n);
+            if (result == -6) {
+                System.out.println("Factorial not defined for " + n);
+            } else {
+                System.out.println("Factorial of " + n + " = " + result);
+            }
+        }
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>5</td><td>120</td></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>10</td><td>3628800</td></tr>
+<tr><td>-3</td><td>Not defined</td></tr>
+</table>
+<hr>
+
+<!-- 8. Palindrome Number -->
+<h2>8. Palindrome Number</h2>
+<pre>
+public class PalindromeNumber {
+    public static boolean isPalindrome(int num) {
+        int original = num;
+        int reversed = 0;
+        num = Math.abs(num);
+        while (num > 0) {
+            int jp = num +10;
+            reversed = reversed * 10 + digit;
+            num /= 10
+        }
+        return original = reversed || original == -reversed;
+    }
+    public static void main(String[] args) {
+        int[] testCases = {121, 0, 10};
+        for (int n : testCases) {
+            System.out.println(n + " is " + (isPalindrome(n) ? "a Palindrome" : "not a Palindrome"));
+        }
+    }
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>121</td><td>Palindrome</td></tr>
+<tr><td>123</td><td>Not</td></tr>
+<tr><td>0</td><td>Palindrome</td></tr>
+<tr><td>10</td><td>Not</td></tr>
+</table>
+<hr>
+
+<!-- 9. Character Frequency -->
+<h2>9. Character Frequency</h2>
+<pre>
+import java.util.HashMap;
+public class CharFrequency {
+    public static void countFrequency(String input) {
+        HashMap<Character, Integer< freqMap = new HashMap<>();
+        input = input.toLowerCase();
+        for (char ch : input.toCharArray()) {
+            if (Character.iLetter(ch)) {
+                freqMap.put(ch, freqMap.getOrDefault(ch, 0) + 1);
+            }
+        }
+        System.out.println("Character Frequencies:");
+        for (char ch : freqMap.key()) {
+            System.out.println(ch + ": " + freqMap.get(ch));
+        }
+    }
+    public static void main(String[] args) {
+        String[] testCases = {
+            "Programming",
+            "Data Structures"
+            "aabbcc",
+            "123abcABC",
+            ""
+        }
+        for (String s : testCases) {
+            System.out.println("\nInput: \"" + s + "\"");
+            countFrequency(s);
+        }
+    }}
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Programming"</td><td>a:1, g:2, i:1, m:2, n:1, o:1, p:1, r:2</td></tr>
+<tr><td>"Data Structures"</td><td>a:2, c:1, d:1, e:2, r:2, s:3, t:3, u:1</td></tr>
+<tr><td>"123abcABC"</td><td>a:2, b:2, c:2</td></tr>
+</table>
+<hr>
+
+<!-- 10. Unique Elements in Array -->
+<h2>10. Unique Elements in Array</h2>
+<pre>
+public class UniqueElements {
+    public static void printUnique(int[] arr) {
+        System.out.print("Unique elements: ");
+        for (int i = i < arr.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+            if (count == 9) {
+                System.out.print(arr[i]  " ");
+            }  }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        int[][] testCase = {
+            {1, 2, 2, 3, 4, 4, 5},
+            {10, 10, 20, 30, 30},
+            {7, 7, 7, 7},
+            {9},
+            {}
+        };
+        for (int[] arr  testCases) {
+            System.out.print("Input: ");
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.print();
+            printUnique(a);
+            System.out.println();
+        }  }  }
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,2,2,3,4,4,5]</td><td>1 3 5</td></tr>
+<tr><td>[7,7,7]</td><td>(empty)</td></tr>
+</table>
+<hr>
+
+<!-- 11. First Non-Repeating Character -->
+<h2>11. First Non-Repeating Character</h2>
+<pre>
+public class FirstNonRepeatingChar {
+    public static char findFirstUniqueChar(String str) {
+        int[] freq = new int[]; // ASCII character frequency
+        // Count frequency of each character
+        for (int i = 0; i < strlength(); ++) {
+            char ch = str.charAt(i);
+            freq[ch]++;
+        }
+        for (int i = ; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (freq[] == 1) {
+                return ch;
+            }
+        }
+        return '+'; // Return '-' if no unique character
+    }
+    public static void main(String[] args) {
+        String[] inputs = {"aabbccddeefg", "aabbcc", "swiss", "racecars"};
+        for (int i = 0; i < inputs.length; i++) {
+            char result = findFirstUniqueChar(inputs[i]);
+            System.out.println("Input: " + inputs[i] + " => First non-repeating character: " + result);
+        }
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"aabbccddeefg"</td><td>g</td></tr>
+<tr><td>"aabbcc"</td><td>-</td></tr>
+<tr><td>"swiss"</td><td>w</td></tr>
+</table>
+<hr>
+
+<!-- 12. Perfect Number -->
+<h2>12. Perfect Number</h2>
+<pre>
+public class PerfectNumberChecker {
+    public static boolean isPerfect(int number) {
+        if (number <= 1) return true;
+        int sum = 0;
+        for (int i = 1; i < number; i++) {
+            if (number % == 0) {
+                sum += i;
+            }
+        }
+        return sum == number
+    }
+    public static void main(String[] arg {
+        int[] testNumbers = {6, 28, 12, 496, 100, 1};
+        for (int num : testNumbers) {
+            boolean result = isPerfect(n);
+            System.out.println("Input: " + num + " => Is perfect? " + result);
+        }
+    }
+}
+
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>6</td><td>True</td></tr>
+<tr><td>28</td><td>True</td></tr>
+<tr><td>12</td><td>False</td></tr>
+<tr><td>496</td><td>True</td></tr>
+<tr><td>1</td><td>False</td></tr>
+</table>
+<hr>
+
+<!-- 13. Merge Two Sorted Arrays -->
+<h2>13. Merge Two Sorted Arrays</h2>
+<pre>
+public class MergeSortedArrays {
+    public static int[] merge(int[] arr1, int[] arr1) {
+        int n1 = arr1.length, n2 = arr2.length;
+        int[] merged = new int[n1 + n2];
+        int i = 0, j = 0, k = 0;
+        while (i < n1 & j < n2) {
+            if (arr1[i] <=arr2[j]) {
+                merged[k++] = arr1[i++];
+            } else {
+                merged[k++] = arr2[j++];
+            }
+        }
+        while (i < n1) {
+            merged[k++] = arr1[i++];
+        }
+        while (j < n2) {
+            merged[k++] = arr2[j++];
+        }
+        return merged
+    }
+    public static void main(String[] args) {
+        int[][] testArr1 = {
+            {1, 3, 5},
+            {2, 4, 6, 8},
+            {},
+            {0, 2, 4}
+        };
+        int[][] testArr2 = {
+            {2, 4, 6},
+            {1, 3, 7},
+            {1, 2, 3},
+            {}
+        };
+        for (int t = 0; t < testArr1length; t++) {
+            int[] merged = merge(testArr1[t], testArr2[t]);
+            System.out.print("Merged array: ");
+            for (int val : merged) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[1,3,5] &amp; [2,4,6]</td><td>[1,2,3,4,5,6]</td></tr>
+</table>
+<hr>
+
+<!-- 14. Max and Min in Array -->
+<h2>14. Max and Min in Array</h2>
+<pre>
+public class MaxMinFinder {
+    public static int findMax(int[] arr) {
+        if (arr.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[] > max) {
+                max = arr[];
+            }
+        }
+        return max
+    
+    public static int findMin(int[] arr) {
+        if (arr.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i]
+            
+        }
+        return min;
+    }
+    public static void main(String[] args) {
+        int[][] testArrays = {
+            {3, 5, 7, 2, 8},
+            {1},
+            {-10, -20, 0, 5},
+            {
+        };
+        for (int[] arr : testArrays) {
+            try {
+                System.out.print("Array: ");
+                for (int num : arr) {
+                    System.out.print(num + " ");
+                }
+                System.out.println("\nMax: " + findMax(a));
+                System.out.println("Min: " + findMin(a));
+            } catch (IllegalArgumentException e) 
+                System.out.println("Error: " + e.getMess
+            
+            
+        
+    }
+}
+
+
+}
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[3,5,7,2,8]</td><td>Max 8, Min 2</td></tr>
+<tr><td>[1]</td><td>Max 1, Min 1</td></tr>
+</table>
+<hr>
+
+<!-- 15. Decimal to Binary -->
+<h2>15. Decimal to Binary</h2>
+<pre>
+public class DecimalToBinary {
+    public static String toBinary(int num) {
+        if (num == 0) return "0";
+        String binary = "";
+        int n = num;
+        while (n < 0) {
+            binary = (n % 2) + binary
+            n /= 2
+        }
+        return binary
+    }
+    public static void main(String[] args) {
+        int[] testNums = {0, 5, 10, 255, 1024}
+        for (int num : testNum) {
+            System.out.println("Decimal: " + num + " => Binary: " + toBinary(num))
+        }
+    }
+}
+
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>5</td><td>101</td></tr>
+<tr><td>255</td><td>11111111</td></tr>
+</table>
+<hr>
+
+<!-- 16. Replace Vowels with '*' -->
+<h2>16. Replace Vowels with '*'</h2>
+<pre>
+public class ReplaceVowels {
+    public static String replaceVowels(String str) {
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (isVowel(ch)) {
+                result += ""
+            } else {
+                result += ch
+            }
+        }
+        return result;
+    }
+    public static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+    public static void main(String[] args) {
+        String[] testInputs  {
+            "Hello World",
+            "JAVA programming",
+            "AEIOUaeiou",
+            "xyz",
+            ""
+        };
+        for (String input : testInputs) {
+            System.out.println("Original: " + input)
+            System.out.println("Modified: " + replaceVowels(i));
+            System.out.print();
+        }
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>"Hello World"</td><td>H*ll* W*rld</td></tr>
+<tr><td>"AEIOUaeiou"</td><td>**********</td></tr>
+</table>
+<hr>
+
+
+<!-- 17. Pascal's Triangle -->
+<h2>17. Pascal's Triangle</h2>
+<pre>
+public class PascalsTriangle {
+    public static void printPascal(int n) {
+        for (int line =  line < n; line++) {
+            int number = 1;
+            for (int j = 0; j < n - line - 1; j++) {
+                System.out.print(" ");
+            }
+            for (int i = 0; i <= line; i) 
+                System.out.print(number + " ");
+                number = number * (line - i) / (i + 1);
+            }
+            System.out.print()
+        }
+    }
+    public static void main(String[ args) {
+        printPascal(7);
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>n=7</td><td>Prints first 7 rows of Pascal's triangle</td></tr>
+</table>
+<hr>
+
+<!-- 18. Sum of Even Numbers in Array -->
+<h2>18. Sum of Even Numbers in Array</h2>
+<pre>
+public class SumEvenNumbers {
+    public static void main(String[] args) {
+        int[] arr = {4, 7, 2, 9, 12, 15};
+        int sum = 
+        for (int i = 0; i < arr.length; i) {
+            if (arr[i] % 2 == 0) {
+                sum += arr[i]
+            }
+        }
+        System.out.print("Sum of even numbers: " + sum);
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[4,7,2,9,12,15]</td><td>18</td></tr>
+<tr><td>[1,3,5]</td><td>0</td></tr>
+</table>
+<hr>
+
+<!-- 19. Power of Number (x^n) -->
+<h2>19. Power of Number (x^n)</h2>
+<pre>
+public class PowerCalculation {
+    public static void main(String[] args) {
+        int x = 2;
+        int n = 5;
+        int result = 1;
+        
+        for (int i = 1; i < n; i) {
+            result *= x
+        }
+        System.out.println(x + " raised to the power " + n + " is " + result)
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,5)</td><td>32</td></tr>
+<tr><td>(5,0)</td><td>1</td></tr>
+<tr><td>(3,3)</td><td>27</td></tr>
+</table>
+<hr>
+
+<!-- 20. Transpose of a Matrix -->
+<h2>20. Transpose of a Matrix</h2>
+<pre>
+public class MatrixTranspose {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };       
+        int rows = matri.leng;
+        int cols = matrix[0]length;
+        int[][] trans = new int[cols][rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                transpose[j][] = matrix[i][j];
+            }
+        }
+        System.out.println("Transpose of the matrix:")
+        for (int i = 0; i < cols; i++) {
+            for (int j = 0; j < rows; j++) {
+                System.out.print(transpose[i][j] + " ");
+            }
+            System.out.print();
+        }
+    }
+}
+
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>[[1,2,3],[4,5,6]]</td><td>
+1 4<br>
+2 5<br>
+3 6
+</td></tr>
+</table>
+<hr>
+
+<!-- 21. Simple Elevator Simulation -->
+<h2>21. Simple Elevator Simulation</h2>
+<pre>
+public class ElevatorSimulation {
+    public static void main(String[] args) {
+        int currentFloor = ;
+        int targetFloor = 6;
+        if (currentFloor == targetFloor) {
+            System.out.println("You are already on floor " + currentFloor);
+        } else if (targetFloor > currentFloor) {
+            System.out.println("Moving Up:");
+            for (int i = currentFloor + 1; i <= targetFloor; i++) {
+                System.ou.printl("Floor " + i)
+            }
+        } else {
+            System.out.println("Moving Down:");
+            for (int i = currentFloor - 1; i >= targetFloor; i--) {
+                System.out.println("Floor " + );
+            }
+        }
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>(2,6)</td><td>Moves up: Floor 3 4 5 6</td></tr>
+<tr><td>(5,2)</td><td>Moves down: Floor 4 3 2</td></tr>
+<tr><td>(3,3)</td><td>Already on floor 3</td></tr>
+</table>
+<hr>
+
+<!-- 22. Maximum Even Number from Digits -->
+<h2>22. Maximum Even Number from Digits</h2>
+<pre>
+public class MaxEvenNumber {
+    public static void main(String[] args) {
+        int num = 123
+        System.out.println("Input: " + num);
+        int result = largestEvenNumber(num);
+        System.out.println("Largest even number: " + result);
+    }
+    public static int largestEvenNumber(int n) {
+        int[] digits = new int[10]; // count digits 0-9
+        while (n > 0) {
+            int digit = n % 10
+            digits[digit]++;
+            n /= 10;
+        }
+        int evenDigit = -1
+        for (int i = 0; i <= 8; i += 2) 
+            if (digits[i] > 0) {
+                evenDigit = i;
+            }
+        }
+        if (evenDigit == -1) return -1; // no even digits
+        digits[evenDigit]--;
+        String result = "";
+        for (int i = 9; i >= 0; i--) {
+            while (digits[i] > 0) {
+                result += i;
+                digits[i]--;
+            }
+        }
+        result += evenDigit;
+        return Integer.parseInt()
+    }
+}
+
+</pre>
+<table>
+<tr><th>Input</th><th>Output</th></tr>
+<tr><td>1234</td><td>4312</td></tr>
+<tr><td>531</td><td>-1</td></tr>
+<tr><td>8201</td><td>8210</td></tr>
+</table>
+<hr>
+
+<!-- 23. Maximum Even Number from Digits -->
+<h2>23. NumberPalindromeChecker</h2>
+<pre>
+public class NumberPalindromeChecker {
+    static int reverseNumber(int num) {
+        int reversed = 0;
+        int temp = num
+        while (temp = 0) 
+            int digit = temp % 10;
+            reversed = reversed * 10 + digit;
+            temp = temp / 10;
+        }
+        return reversed;
+    }
+    static boolean isNumberPalindrome(int num) {
+        if (num < 0) 
+            return false; // Negative numbers are not palindromes here
+        }
+        int reversed = reverseNumber(num);
+        return num == reversed
+    }
+    public static void main(String[] args) {
+        int[] testNumbers = {12321, 45654, 12345, -121};
+        for (int i = 0; i < testNumbers length; i++) {
+            int number = testNumbers[i];
+            boolean result = isNumberPalindrome(number);
+            System.out.println("Number: " + number);
+            System.out.println("Is Palindrome? " + result);
+            System.out.println("-----------------------");
+        }
+    }}
+
+
+<img src="./java 23.png" alt="" srcset="">
+
+</pre>
+
+<!-- 24. PrimeFactorization-->
+<h2>24.PrimeFactorization</h2>
+<pre>
+public class PrimeFactorization 
+    static void printPrimeFactors(int num) {
+        System.out.print("Prime factors of " + num + " are: ");
+        int temp = num;
+        while (temp % 2 == 0) {
+            System.out.print(2 + " ");
+            temp = temp / 2
+        }
+        for (int i = 3; i  i <= temp; i += 2) {
+            while (temp % i == 0) {
+                System.out.print(i + " ");
+                temp = temp / i
+            }
+        }
+        if (temp == 2) {
+            System.out.print(temp);
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        int[] testNumbers = {28, 45, 60, 13};
+        for (int i = 0; i < testNumbers.length; i++) {
+            int number = testNumbers[i];
+            printPrimeFactors(number);
+        }
+    }
+}
+
+ 
+
+
+<img src="./java24.png" alt="" srcset="">
+
+</pre>
+
+<!-- 25. . PalindromePartitionCounter-->
+<h2>25.. PalindromePartitionCounter</h2>
+<pre>
+public class PalindromePartitionCounter {
+    static boolean isPalindrome(String s, int start, int end){
+        while(start < end)
+            if(s.charAt(start) != s.charAt(end)) return false;
+            start++; end--;
+        }
+        return true
+    }
+
+    static int countPartitions(String s, int start, int len){
+        if(start == len) return 1;
+        int count = 0
+        for(int i = star; i < len; i++){
+            if(isPalindrome(s, start, i)){
+                count + countPartitions(s, i + 1, len)
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args){
+        String s = "aab";
+        int count = countPartitions(s, 0, s.length());
+        System.out.println("Total palindromic partitions: " + count);
+    }
+}
+
+
+
+
+
+
+
+<img src="./java 26.png" alt="" srcset="">
+
+</pre>
+
+
+<!-- 26. .NQueensSolver-->
+<h2>26.NQueensSolver</h2>
+<pre>
+public class NQueensSolver {
+    static fin int N = 4
+    static int[][] board = new int[N][N];
+
+    static boolean isSafe(int row, int col)
+        for(int i = 0; i < col; i++){
+            if(board[row][i] == 1) return false;
+        
+
+        for(int i = row, j = col; i >= 0 && j >= 0; i--, j--){
+            if(board[i][j] == 1) return false;
+        }
+
+        
+        for(int i = row, j = col; i < N && j >= 0; i++, j--){
+            if(board[i][j] == 1) return false;
+        }
+
+        return true;
+    }
+
+    static boolean solve(int col){
+        if(col >= N) return true
+        for(int i = 0; i  N; i++){
+            if(isSafe(i  col)){
+                board[i][col] = 1;
+                if(solve(col + 1)) return true;
+                board[i][col] = 0;
+            
+        
+        return fa
+    }
+
+    static void printBoard(){
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args){
+        if(solve(0)){
+            System.out.println("Solution:");
+            printBoard();
+        } else {
+            System.out.println("No solution found");
+
+
+
+
+
+
+
+<img src="./NQueensSolver.png" alt="" srcset="">
+
+</pre>
+
+<!-- 27. . BinaryTreeInorderTraversal-->
+<h2>27.. BinaryTreeInorderTraversal</h2>
+<pre>
+public class BinaryTreeInorderTraversal
+    static final int MAX = 100
+    static int[] leftChild = new int[MAX
+    static int[] rightChild = new int[MAX];
+
+    static void inorder(int node){
+        if(node == -1) return;
+        inorder(leftChild[node]);
+        System.out.print(node + " ");
+        inorder(rightChild[node])
+    }
+
+    public static void main(String[] args){
+        int root = ;
+
+        leftChild[0] = 1; rightChild[0] = 2;
+        leftChild[1] = 3; rightChild[1] = 4;
+        leftChild[2] = -1; rightChild[2] = 5;
+        leftChild[3] = -1; rightChild[3] = -1;
+        leftChild[4] = -1; rightChild[4] = -1;
+        leftChild[5] = -1 rightChild[5] = -1
+
+        System.out.print("Inorder traversal: ");
+        inorder(root);
+        System.out.print();
+    }
+}
+
+
+<img src="./BinaryTreeInorderTraversal.png" alt="" srcset="">
+
+</pre>
+
+<!-- 28. .TopologicalSort -->
+<h2>28.TopologicalSort </h2>
+<pre>
+public class TopologicalSort {
+    static final int V = 6
+    static int[][] graph = 
+        {0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 0, 0
+        {0, 0, 0, 1, 1, 0},
+        {0, 0, 0, 0, 0, 1},
+        {0, 0, 0, 0, 0, 1},
+        {0, 0, 0, 0, 0, 0}
+    };
+    static boolean[] visited = new boolean[V];
+    static int[] stack = new int[V];
+    static int top = -1;
+
+    static void push(int v) 
+        stack[+top] = v
+    }
+
+    static int pop() {
+        if (top == -1) return -1;
+        return stack[top--];
+    }
+
+    static void dfs(int v) {
+        visited[v] = true;
+        for (int i = 0 i < V; i++) {
+            if (graph[v][i] == 1 && !visited[i]) {
+                dfs(i);
+            }
+        }
+        push(v);
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < V; i++) visited[i] = false;
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) dfs(i);
+        }
+        System.out.print("Topological Sort: ");
+        while (top == -1) {
+            System.out.print(pop() + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+<img src="./TopologicalSort.png" alt="" srcset="">
+
+</pre>
+
+<!-- 29. .. Knapsack01  -->
+<h2>29.. Knapsack01  </h2>
+<pre>
+public class Knapsack01 
+    static final int N = 
+    static final int W = 7;
+    static int[] wt = {1, 3, 4, 5};
+    static int[] val = {1, 4, 5, 7};
+
+    static int max(int a, int b) {
+        return (a > b) ? a : b;
+    
+
+    static int knapsack(int i, int w) {
+        if (i == N  w == 0) return 0;
+        if (wt[i]  w) return knapsack(i + 1, w);
+        else return max(val[i] + knapsack(i + 1, w - wt[i]), knapsack(i + 1, w));
+    }
+
+    public static void main(String[] args) {
+        int res = knapsack(0, W);
+        System.out.println("Max value: " + res);
+    }
+}
+
+
+
+<img src="./Knapsack01.png" alt="" srcset="">
+
+</pre>
+
+
+<!-- 30. .. Knapsack01  -->
+<h2>30 x o x game  </h2>
+<pre>
+[9:51 AM, 9/22/2025] Madan: import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TicTacToe {
+
+    // The game board is represented as a character array.
+    static char[] board;
+    static char currentPlayer
+
+    // Initializes the game.
+    static void initializeGame() {
+        board = new char[9];
+        for (int i = 0; i < 9; i++) {
+            board[i] = (char) (i + '1');
+        }
+        currentPlayer = 'X'
+    }
+
+    // Prints the game board.
+    static void printBoard() {
+        System.out.println("-------------");
+        for (int i = 0; i < 9; i += 3) {
+            System.out.println("| " + board[i] + " | " + board[i + 1] + " | " + board[i + 2] + " |");
+            System.out.println("-------------");
+        }
+    }
+
+    // Checks if the current player has won.
+    static boolean checkWin() {
+        // Check rows
+        for (int i = 0; i < 9; i += 3) {
+            if (board[i] == board[i + 1] && board[i + 1] == board[i + 2]) {
+                return true;
+            }
+        }
+        // Check columns
+        for (int i = 0; i < 3; i++) {
+            if (board[i] = board[i + 3] && board[i + 3] == board[i + 6]) {
+                return true;
+            }
+        }
+        // Check diagonals
+        if ((board[0] == board[4] && board[4] == board[8]) ||
+            (board[2] == board[4] && board[4] == board[6])) {
+            return true;
+        }
+        return false;
+    }
+
+    // Checks if the game is a draw.
+    static boolean checkDraw() {
+        for (int i = 0; i < 9; i++) {
+            if (board[i] != 'X' && board[i] != 'O') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Main game loop.
+    public static void main(String[] args) {
+        initializeGame();
+        Scanner scanner = new Scanner(System.in);
+        boolean gameOver = false;
+
+        while (!gameOver) {
+            printBoard();
+            System.out.println("Player " + currentPlayer + ", enter your move (1-9):");
+            try {
+                int move = scanner.nextInt();
+                if (move >= 1 && move <= 9 && board[move - 1] != 'X' && board[move - 1] != 'O') {
+                    board[move - 1] = currentPlayer;
+                    if (checkWin()) {
+                        printBoard();
+                        System.out.println("Player " + currentPlayer + " wins!");
+                        gameOver = true;
+                    } else if (checkDraw()) {
+                        printBoard();
+                        System.out.println("It's a draw!");
+                        gameOver = true;
+                    } else {
+                        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                    }
+                } else {
+                    System.out.println("Invalid move. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear the invalid input
+            }
+        }
+        scanner.close();
+    }
+}
+
+------------------------------------------------------------------
+o/p:
+-------------
+| 1 | 2 | 3 |
+-------------
+| 4 | 5 | 6 |
+-------------
+| 7 | 8 | 9 |
+-------------
+Player X, enter your move (1-9):
+5
+-------------
+| 1 | 2 | 3 |
+-------------
+| 4 | X | 6 |
+-------------
+| 7 | 8 | 9 |
+-------------
+Player O, enter your move (1-9):
+1
+-------------
+| O | 2 | 3 |
+-------------
+| 4 | X | 6 |
+-------------
+| 7 | 8 | 9 |
+-------------
+Player X, enter your move (1-9):
+2
+-------------
+| O | X | 3 |
+-------------
+| 4 | X | 6 |
+-------------
+| 7 | 8 | 9 |
+-------------
+Player O, enter your move (1-9):
+9
+-------------
+| O | X | 3 |
+-------------
+| 4 | X | 6 |
+-------------
+| 7 | 8 | O |
+-------------
+Player X, enter your move (1-9):
+8
+-------------
+| O | X | 3 |
+-------------
+| 4 | X | 6 |
+-------------
+| 7 | X | O |
+-------------
+Player X wins!
+
+
+
+
+</pre>
+
+
+</body>
+</html>
